@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useSearchParams } from "next/navigation";
 
 interface Nurse {
   id: string;
@@ -16,13 +17,24 @@ interface Nurse {
 }
 
 export default function RagSearchPage() {
+  const searchParams = useSearchParams();
   const [query, setQuery] = useState("");
   const [results, setResults] = useState<Nurse[]>([]);
   const [loading, setLoading] = useState(false);
 
-  async function handleSearch() {
-    if (!query.trim()) return;
-    
+  // Handle URL query parameters
+  useEffect(() => {
+    const urlQuery = searchParams.get("query");
+    if (urlQuery) {
+      setQuery(urlQuery);
+      // Auto-search if query is provided in URL
+      handleSearchWithQuery(urlQuery);
+    }
+  }, [searchParams]);
+
+  async function handleSearchWithQuery(searchQuery: string) {
+    if (!searchQuery.trim()) return;
+
     setLoading(true);
     try {
       const res = await fetch("/api/search", {
@@ -30,7 +42,7 @@ export default function RagSearchPage() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ query }),
+        body: JSON.stringify({ query: searchQuery }),
       });
 
       const data = await res.json();
@@ -43,6 +55,10 @@ export default function RagSearchPage() {
     }
   }
 
+  async function handleSearch() {
+    await handleSearchWithQuery(query);
+  }
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
       <div className="container mx-auto px-4 py-8">
@@ -52,7 +68,8 @@ export default function RagSearchPage() {
             🏥 Nurse Finder
           </h1>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Find the perfect nurse for your healthcare needs using AI-powered search
+            Find the perfect nurse for your healthcare needs using AI-powered
+            search
           </p>
         </div>
 
@@ -66,7 +83,7 @@ export default function RagSearchPage() {
                   onChange={(e) => setQuery(e.target.value)}
                   placeholder="Search for nurses... (e.g., 'Hindi speaking nurse for pregnancy care', 'experienced pediatric nurse')"
                   className="w-full px-4 py-3 text-lg bg-white text-black placeholder-black border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all"
-                  onKeyPress={(e) => e.key === 'Enter' && handleSearch()}
+                  onKeyPress={(e) => e.key === "Enter" && handleSearch()}
                 />
               </div>
               <button
@@ -92,15 +109,23 @@ export default function RagSearchPage() {
           {results.length === 0 && !loading && query && (
             <div className="text-center py-12">
               <div className="text-6xl mb-4">🔍</div>
-              <h3 className="text-xl font-semibold text-gray-700 mb-2">No results found</h3>
-              <p className="text-gray-500">Try adjusting your search terms or be more specific</p>
+              <h3 className="text-xl font-semibold text-gray-700 mb-2">
+                No results found
+              </h3>
+              <p className="text-gray-500">
+                Try adjusting your search terms or be more specific
+              </p>
             </div>
           )}
-          
+
           {results.length > 0 && (
             <div className="mb-4">
               <p className="text-gray-600 text-center">
-                Found <span className="font-semibold text-blue-600">{results.length}</span> matching nurses
+                Found{" "}
+                <span className="font-semibold text-blue-600">
+                  {results.length}
+                </span>{" "}
+                matching nurses
               </p>
             </div>
           )}
@@ -126,7 +151,7 @@ export default function RagSearchPage() {
                     )}
                   </div>
                 )}
-                
+
                 <div className="p-6">
                   {/* Header */}
                   <div className="flex items-start justify-between mb-4">
@@ -139,16 +164,19 @@ export default function RagSearchPage() {
                         <span>{nurse.experience_years} years experience</span>
                       </div>
                     </div>
-                    {!nurse.profile_image_url && nurse.available_for_home_visits && (
-                      <span className="bg-green-100 text-green-800 text-xs font-medium px-2 py-1 rounded-full">
-                        Home Visits
-                      </span>
-                    )}
+                    {!nurse.profile_image_url &&
+                      nurse.available_for_home_visits && (
+                        <span className="bg-green-100 text-green-800 text-xs font-medium px-2 py-1 rounded-full">
+                          Home Visits
+                        </span>
+                      )}
                   </div>
 
                   {/* Specializations */}
                   <div className="mb-4">
-                    <h4 className="text-sm font-semibold text-gray-700 mb-2">Specializations</h4>
+                    <h4 className="text-sm font-semibold text-gray-700 mb-2">
+                      Specializations
+                    </h4>
                     <div className="flex flex-wrap gap-1">
                       {nurse.specializations.slice(0, 3).map((spec, idx) => (
                         <span
@@ -168,7 +196,9 @@ export default function RagSearchPage() {
 
                   {/* Languages */}
                   <div className="mb-4">
-                    <h4 className="text-sm font-semibold text-gray-700 mb-2">Languages</h4>
+                    <h4 className="text-sm font-semibold text-gray-700 mb-2">
+                      Languages
+                    </h4>
                     <div className="flex flex-wrap gap-1">
                       {nurse.languages.slice(0, 3).map((lang, idx) => (
                         <span
@@ -200,11 +230,15 @@ export default function RagSearchPage() {
                     <div className="grid grid-cols-2 gap-4 text-sm">
                       <div>
                         <span className="text-gray-500">Consultation</span>
-                        <p className="font-semibold text-green-600">{nurse.consultation_fee}</p>
+                        <p className="font-semibold text-green-600">
+                          {nurse.consultation_fee}
+                        </p>
                       </div>
                       <div>
                         <span className="text-gray-500">Home Visit</span>
-                        <p className="font-semibold text-green-600">{nurse.home_visit_fee}</p>
+                        <p className="font-semibold text-green-600">
+                          {nurse.home_visit_fee}
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -232,7 +266,7 @@ export default function RagSearchPage() {
                 "Pediatric nurse with 5+ years",
                 "Home visit available",
                 "Emergency care nurse",
-                "Elderly care specialist"
+                "Elderly care specialist",
               ].map((sample, idx) => (
                 <button
                   key={idx}
