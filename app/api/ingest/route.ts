@@ -15,11 +15,15 @@ interface Nurse {
   consultation_fee: string;
   home_visit_fee: string;
   available_for_home_visits: boolean;
-  latitude: number;
-  longitude: number;
+  latitude: number | null;
+  longitude: number | null;
 }
 
 function nurseToText(n: Nurse) {
+  const location = n.latitude !== null && n.longitude !== null 
+    ? `${n.latitude}, ${n.longitude}` 
+    : "Location not available";
+    
   return `
 Nurse Name: ${n.name || "Unknown"}
 Specializations: ${n.specializations.join(", ")}
@@ -28,7 +32,7 @@ Languages: ${n.languages.join(", ")}
 Bio: ${n.bio}
 Fees: ${n.consultation_fee} / ${n.home_visit_fee}
 Available (Home Visit): ${n.available_for_home_visits}
-Location: ${n.latitude}, ${n.longitude}
+Location: ${location}
   `;
 }
 
