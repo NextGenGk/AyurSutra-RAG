@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 
 interface Nurse {
@@ -16,7 +16,7 @@ interface Nurse {
   available_for_home_visits: boolean;
 }
 
-export default function RagSearchPage() {
+function SearchComponent() {
   const searchParams = useSearchParams();
   const [query, setQuery] = useState("");
   const [results, setResults] = useState<Nurse[]>([]);
@@ -284,5 +284,25 @@ export default function RagSearchPage() {
         )}
       </div>
     </div>
+  );
+}
+
+export default function RagSearchPage() {
+  return (
+    <Suspense
+      fallback={
+        <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center">
+          <div className="text-center">
+            <div className="text-6xl mb-4">🏥</div>
+            <h1 className="text-2xl font-bold text-gray-800 mb-2">
+              Nurse Finder
+            </h1>
+            <p className="text-gray-600">Loading search...</p>
+          </div>
+        </div>
+      }
+    >
+      <SearchComponent />
+    </Suspense>
   );
 }
