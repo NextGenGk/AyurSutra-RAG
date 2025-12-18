@@ -3,23 +3,22 @@
 import { useState, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 
-interface Nurse {
-  id: string;
-  name: string;
-  profile_image_url?: string;
-  specializations: string[];
-  experience_years: number;
+interface Doctor {
+  did: string;
+  specialization: string;
+  qualification: string;
+  years_of_experience: number;
   languages: string[];
   consultation_fee: string;
-  home_visit_fee: string;
   bio: string;
-  available_for_home_visits: boolean;
+  clinic_name: string;
+  city: string;
 }
 
 function SearchComponent() {
   const searchParams = useSearchParams();
   const [query, setQuery] = useState("");
-  const [results, setResults] = useState<Nurse[]>([]);
+  const [results, setResults] = useState<Doctor[]>([]);
   const [loading, setLoading] = useState(false);
 
   // Handle URL query parameters
@@ -65,10 +64,10 @@ function SearchComponent() {
         {/* Header */}
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold text-gray-800 mb-4">
-            🏥 Nurse Finder
+            🏥 Doctor Finder
           </h1>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Find the perfect nurse for your healthcare needs using AI-powered
+            Find the perfect doctor for your healthcare needs using AI-powered
             search
           </p>
         </div>
@@ -81,7 +80,7 @@ function SearchComponent() {
                 <input
                   value={query}
                   onChange={(e) => setQuery(e.target.value)}
-                  placeholder="Search for nurses... (e.g., 'Hindi speaking nurse for pregnancy care', 'experienced pediatric nurse')"
+                  placeholder="Search for doctors... (e.g., 'cardiologist in Indore', 'pediatric surgeon with experience')"
                   className="w-full px-4 py-3 text-lg bg-white text-black placeholder-black border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all"
                   onKeyPress={(e) => e.key === "Enter" && handleSearch()}
                 />
@@ -125,73 +124,37 @@ function SearchComponent() {
                 <span className="font-semibold text-blue-600">
                   {results.length}
                 </span>{" "}
-                matching nurses
+                matching doctors
               </p>
             </div>
           )}
 
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {results.map((nurse, i) => (
+            {results.map((doctor, i) => (
               <div
-                key={nurse.id || i}
+                key={doctor.did || i}
                 className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 overflow-hidden"
               >
-                {/* Profile Image */}
-                {nurse.profile_image_url && (
-                  <div className="relative h-48 w-full">
-                    <img
-                      src={nurse.profile_image_url}
-                      alt={nurse.name}
-                      className="w-full h-full object-cover"
-                    />
-                    {nurse.available_for_home_visits && (
-                      <span className="absolute top-3 right-3 bg-green-100 text-green-800 text-xs font-medium px-2 py-1 rounded-full">
-                        Home Visits
-                      </span>
-                    )}
-                  </div>
-                )}
-
                 <div className="p-6">
                   {/* Header */}
-                  <div className="flex items-start justify-between mb-4">
-                    <div>
-                      <h3 className="text-xl font-bold text-gray-800 mb-1">
-                        {nurse.name}
-                      </h3>
-                      <div className="flex items-center gap-2 text-sm text-gray-500">
-                        <span>👩‍⚕️</span>
-                        <span>{nurse.experience_years} years experience</span>
-                      </div>
+                  <div className="mb-4">
+                    <h3 className="text-xl font-bold text-gray-800 mb-2">
+                      {doctor.specialization}
+                    </h3>
+                    <div className="flex items-center gap-2 text-sm text-gray-500 mb-1">
+                      <span>👨‍⚕️</span>
+                      <span>{doctor.years_of_experience} years experience</span>
                     </div>
-                    {!nurse.profile_image_url &&
-                      nurse.available_for_home_visits && (
-                        <span className="bg-green-100 text-green-800 text-xs font-medium px-2 py-1 rounded-full">
-                          Home Visits
-                        </span>
-                      )}
+                    <p className="text-sm text-gray-600">{doctor.qualification}</p>
                   </div>
 
-                  {/* Specializations */}
+                  {/* Clinic Info */}
                   <div className="mb-4">
-                    <h4 className="text-sm font-semibold text-gray-700 mb-2">
-                      Specializations
+                    <h4 className="text-sm font-semibold text-gray-700 mb-1">
+                      Clinic
                     </h4>
-                    <div className="flex flex-wrap gap-1">
-                      {nurse.specializations.slice(0, 3).map((spec, idx) => (
-                        <span
-                          key={idx}
-                          className="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full"
-                        >
-                          {spec}
-                        </span>
-                      ))}
-                      {nurse.specializations.length > 3 && (
-                        <span className="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded-full">
-                          +{nurse.specializations.length - 3} more
-                        </span>
-                      )}
-                    </div>
+                    <p className="text-sm text-gray-600">{doctor.clinic_name}</p>
+                    <p className="text-xs text-gray-500">{doctor.city}</p>
                   </div>
 
                   {/* Languages */}
@@ -200,7 +163,7 @@ function SearchComponent() {
                       Languages
                     </h4>
                     <div className="flex flex-wrap gap-1">
-                      {nurse.languages.slice(0, 3).map((lang, idx) => (
+                      {doctor.languages.map((lang, idx) => (
                         <span
                           key={idx}
                           className="bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded-full"
@@ -208,44 +171,31 @@ function SearchComponent() {
                           {lang}
                         </span>
                       ))}
-                      {nurse.languages.length > 3 && (
-                        <span className="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded-full">
-                          +{nurse.languages.length - 3} more
-                        </span>
-                      )}
                     </div>
                   </div>
 
                   {/* Bio */}
-                  {nurse.bio && (
+                  {doctor.bio && (
                     <div className="mb-4">
                       <p className="text-sm text-gray-600 line-clamp-3">
-                        {nurse.bio}
+                        {doctor.bio}
                       </p>
                     </div>
                   )}
 
                   {/* Fees */}
                   <div className="border-t pt-4">
-                    <div className="grid grid-cols-2 gap-4 text-sm">
-                      <div>
-                        <span className="text-gray-500">Consultation</span>
-                        <p className="font-semibold text-green-600">
-                          {nurse.consultation_fee}
-                        </p>
-                      </div>
-                      <div>
-                        <span className="text-gray-500">Home Visit</span>
-                        <p className="font-semibold text-green-600">
-                          {nurse.home_visit_fee}
-                        </p>
-                      </div>
+                    <div className="text-sm">
+                      <span className="text-gray-500">Consultation Fee</span>
+                      <p className="font-semibold text-green-600 text-lg">
+                        ₹{doctor.consultation_fee}
+                      </p>
                     </div>
                   </div>
 
                   {/* Action Button */}
                   <button className="w-full mt-4 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-medium py-2 px-4 rounded-xl transition-all duration-200">
-                    Contact Nurse
+                    Book Appointment
                   </button>
                 </div>
               </div>
@@ -295,7 +245,7 @@ export default function RagSearchPage() {
           <div className="text-center">
             <div className="text-6xl mb-4">🏥</div>
             <h1 className="text-2xl font-bold text-gray-800 mb-2">
-              Nurse Finder
+              Doctor Finder
             </h1>
             <p className="text-gray-600">Loading search...</p>
           </div>

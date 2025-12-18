@@ -2,37 +2,52 @@ import { NextResponse } from "next/server";
 import { Pinecone } from "@pinecone-database/pinecone";
 import { createEmbedding } from "@/lib/embedding";
 
-// our nurse data
-import nurses from "@/data/nurses.json";
+// our doctor data
+import doctors from "@/data/docters.json";
 
-interface Nurse {
-  id: string;
-  name: string | null;
-  specializations: string[];
-  experience_years: number;
-  languages: string[];
-  bio: string;
+interface Doctor {
+  idx: number;
+  did: string;
+  uid: string;
+  specialization: string;
+  qualification: string;
+  registration_number: string | null;
+  years_of_experience: number;
   consultation_fee: string;
-  home_visit_fee: string;
-  available_for_home_visits: boolean;
-  latitude: number | null;
-  longitude: number | null;
+  bio: string;
+  clinic_name: string;
+  address_line1: string;
+  address_line2: string | null;
+  city: string;
+  state: string;
+  country: string;
+  postal_code: string;
+  languages: string[];
+  is_verified: boolean;
+  created_at: string;
+  updated_at: string;
 }
 
-function nurseToText(n: Nurse) {
-  const location = n.latitude !== null && n.longitude !== null 
-    ? `${n.latitude}, ${n.longitude}` 
-    : "Location not available";
-    
+function doctorToText(d: Doctor) {
+  const address = [
+    d.address_line1,
+    d.address_line2,
+    d.city,
+    d.state,
+    d.postal_code
+  ].filter(Boolean).join(", ");
+
   return `
-Nurse Name: ${n.name || "Unknown"}
-Specializations: ${n.specializations.join(", ")}
-Experience: ${n.experience_years} years
-Languages: ${n.languages.join(", ")}
-Bio: ${n.bio}
-Fees: ${n.consultation_fee} / ${n.home_visit_fee}
-Available (Home Visit): ${n.available_for_home_visits}
-Location: ${location}
+Doctor Specialization: ${d.specialization}
+Qualification: ${d.qualification}
+Registration: ${d.registration_number || "Not specified"}
+Experience: ${d.years_of_experience} years
+Languages: ${d.languages.join(", ")}
+Bio: ${d.bio}
+Consultation Fee: ₹${d.consultation_fee}
+Clinic: ${d.clinic_name}
+Address: ${address}
+Verified: ${d.is_verified ? "Yes" : "No"}
   `;
 }
 
@@ -43,18 +58,20 @@ export async function GET() {
 
     const vectors = [];
 
-    for (const nurse of nurses) {
-      const content = nurseToText(nurse);
+    for (const doctor of doctors) {
+      const content = doctorToText(doctor);
       const embedding = await createEmbedding(content);
 
       vectors.push({
-        id: nurse.id,
+        id: doctor.did,
         values: embedding,
-        metadata: { 
-          name: nurse.name || "Unknown", 
-          experience_years: nurse.experience_years.toString(),
-          specializations: nurse.specializations.join(", "),
-          languages: nurse.languages.join(", "),
+        metadata: {
+          specialization: doctor.specialization,
+          years_of_experience: doctor.years_of_experience.toString(),
+          qualification: doctor.qualification,
+          languages: doctor.languages.join(", "),
+          clinic_name: doctor.clinic_name,
+          city: doctor.city,
           content: content
         }
       });
@@ -63,14 +80,14 @@ export async function GET() {
     // Upsert vectors to Pinecone
     await index.upsert(vectors);
 
-    return NextResponse.json({ 
-      message: "Nurses ingested successfully to Pinecone!", 
-      count: vectors.length 
+    return NextResponse.json({
+      message: "Doctors ingested successfully to Pinecone!",
+      count: vectors.length
     });
   } catch (error) {
     console.error("Error ingesting data:", error);
-    return NextResponse.json({ 
-      error: "Failed to ingest data", 
+    return NextResponse.json({
+      error: "Failed to ingest data",
       details: error instanceof Error ? error.message : "Unknown error"
     }, { status: 500 });
   }
