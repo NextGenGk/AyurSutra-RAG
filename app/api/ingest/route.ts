@@ -13,15 +13,15 @@ interface Doctor {
   qualification: string;
   registration_number: string | null;
   years_of_experience: number;
-  consultation_fee: string;
+  consultation_fee: string | number;
   bio: string;
-  clinic_name: string;
-  address_line1: string;
+  clinic_name: string | null;
+  address_line1: string | null;
   address_line2: string | null;
-  city: string;
-  state: string;
-  country: string;
-  postal_code: string;
+  city: string | null;
+  state: string | null;
+  country: string | null;
+  postal_code: string | null;
   languages: string[];
   is_verified: boolean;
   created_at: string;
@@ -70,8 +70,8 @@ export async function GET() {
           years_of_experience: doctor.years_of_experience.toString(),
           qualification: doctor.qualification,
           languages: doctor.languages.join(", "),
-          clinic_name: doctor.clinic_name,
-          city: doctor.city,
+          clinic_name: doctor.clinic_name || "Not specified",
+          city: doctor.city || "Not specified",
           content: content
         }
       });
