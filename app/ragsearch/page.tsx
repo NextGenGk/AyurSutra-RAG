@@ -5,6 +5,7 @@ import { useSearchParams } from "next/navigation";
 
 interface Doctor {
   did: string;
+  name?: string;
   specialization: string;
   qualification: string;
   years_of_experience: number;
@@ -13,6 +14,7 @@ interface Doctor {
   bio: string;
   clinic_name: string;
   city: string;
+  image_url?: string;
 }
 
 function SearchComponent() {
@@ -138,9 +140,29 @@ function SearchComponent() {
                 <div className="p-6">
                   {/* Header */}
                   <div className="mb-4">
-                    <h3 className="text-xl font-bold text-gray-800 mb-2">
-                      {doctor.specialization}
-                    </h3>
+                    <div className="flex items-center gap-4 mb-4">
+                         {doctor.image_url ? (
+                            <img 
+                                src={doctor.image_url} 
+                                alt={doctor.specialization} 
+                                className="w-16 h-16 rounded-full object-cover border-2 border-blue-100 shadow-sm"
+                            />
+                         ) : (
+                            <div className="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center text-3xl">
+                                👨‍⚕️
+                            </div>
+                         )}
+                         <div>
+                             {/* Use 'Doctor' as fallback if name is not available yet (though we should add it) */}
+                             <h3 className="text-xl font-bold text-gray-800">
+                                {doctor.name || "Doctor"}
+                             </h3>
+                             <p className="text-sm text-blue-600 font-medium">
+                                {doctor.specialization}
+                             </p>
+                         </div>
+                    </div>
+
                     <div className="flex items-center gap-2 text-sm text-gray-500 mb-1">
                       <span>👨‍⚕️</span>
                       <span>{doctor.years_of_experience} years experience</span>
