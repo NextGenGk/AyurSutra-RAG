@@ -58,6 +58,13 @@ export async function GET() {
 
     const vectors = [];
 
+    // Delete all existing vectors to ensure fresh data
+    try {
+      await index.deleteAll();
+    } catch (err) {
+      console.warn("Could not delete existing vectors (index might be empty):", err);
+    }
+
     for (const doctor of doctors) {
       const content = doctorToText(doctor);
       const embedding = await createEmbedding(content);
@@ -72,6 +79,7 @@ export async function GET() {
           languages: doctor.languages.join(", "),
           clinic_name: doctor.clinic_name || "Not specified",
           city: doctor.city || "Not specified",
+          image_url: (doctor as any).image_url || "", // Pass the image URL
           content: content
         }
       });

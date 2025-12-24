@@ -1,0 +1,207 @@
+INSERT INTO "public"."doctors" ("did",
+"uid",
+"specialization",
+"qualification",
+"registration_number",
+"years_of_experience",
+"consultation_fee",
+"bio",
+"clinic_name",
+"address_line1",
+"address_line2",
+"city",
+"state",
+"country",
+"postal_code",
+"languages",
+"is_verified",
+"created_at",
+"updated_at") VALUES ('350e8400-e29b-41d4-a716-446655440001', '650e8400-e29b-41d4-a716-446655440001', 'General Medicine & Family Physician', 'MBBS, MD (Internal Medicine)', 'MCI/2009/MP/12345', '18', '500.00', 'Senior consultant with expertise in managing chronic diseases, preventive healthcare, and acute illnesses. Special interest in diabetes and hypertension management.', 'Kumar Multispecialty Clinic', '45-A, Nehru Stadium Road',
+null, 'Indore', 'Madhya Pradesh', 'India', '452001', ARRAY[
+    "English",
+    "Hindi",
+    "Marathi"
+], 'true', '2025-12-18 07: 43: 14.815417+00', '2025-12-18 07: 43: 14.815417+00'), ('350e8400-e29b-41d4-a716-446655440002', '650e8400-e29b-41d4-a716-446655440002', 'Gynecology & Obstetrics', 'MBBS, MS (OB-GYN), Fellowship in High-Risk Pregnancy', 'MCI/2012/MP/23456', '12', '800.00', 'Specialist in high-risk pregnancies, infertility treatment, and minimally invasive gynecological surgeries. PCOS and endometriosis expert.', 'Rao Women''s Health Center', '123, Scheme 54, Near Brilliant Convention',
+null, 'Indore', 'Madhya Pradesh', 'India', '452010', ARRAY[
+    "English",
+    "Hindi",
+    "Telugu",
+    "Marathi"
+], 'true', '2025-12-18 07: 43: 14.815417+00', '2025-12-18 07: 43: 14.815417+00'), ('350e8400-e29b-41d4-a716-446655440003', '650e8400-e29b-41d4-a716-446655440003', 'Ayurveda & Panchakarma Specialist', 'BAMS, MD (Ayurveda), PhD (Ayurvedic Medicine)',
+null, '22', '600.00', 'Traditional Ayurvedic practitioner specializing in Panchakarma therapies, chronic pain management, stress-related disorders, and lifestyle diseases.', 'Ayur Wellness & Panchakarma Center', '78, Rajendra Nagar, Near Devi Ahilya University',
+null, 'Indore', 'Madhya Pradesh', 'India', '452012', ARRAY[
+    "English",
+    "Hindi",
+    "Sanskrit",
+    "Tamil"
+], 'true', '2025-12-18 07: 43: 14.815417+00', '2025-12-18 07: 43: 14.815417+00'), ('350e8400-e29b-41d4-a716-446655440004', '650e8400-e29b-41d4-a716-446655440004', 'Dental Surgery & Orthodontics', 'BDS, MDS (Orthodontics), Certificate in Cosmetic Dentistry', 'DCI/2015/MP/34567', '9', '700.00', 'Expert in braces, aligners, teeth whitening, root canal treatment, and cosmetic dental procedures. Modern painless dentistry techniques.',
+null,
+null,
+null,
+null,
+null, 'India',
+null, ARRAY[
+    "English",
+    "Hindi",
+    "Gujarati"
+], 'true', '2025-12-18 07: 43: 14.815417+00', '2025-12-18 07: 43: 14.815417+00'), ('350e8400-e29b-41d4-a716-446655440005', '650e8400-e29b-41d4-a716-446655440005', 'Interventional Cardiology', 'MBBS, MD (Medicine), DM (Cardiology), FSCAI', 'MCI/2005/MP/45678', '20', '1500.00', 'Senior interventional cardiologist with expertise in angioplasty, pacemaker implantation, and management of complex cardiac conditions.', 'Nair Advanced Heart Care Institute', '234, Race Course Road, Near C21 Mall',
+null, 'Indore', 'Madhya Pradesh', 'India', '452003', ARRAY[
+    "English",
+    "Hindi",
+    "Malayalam"
+], 'true', '2025-12-18 07: 43: 14.815417+00', '2025-12-18 07: 43: 14.815417+00'), ('350e8400-e29b-41d4-a716-446655440006', '650e8400-e29b-41d4-a716-446655440006', 'Pediatrics & Neonatology', 'MBBS, MD (Pediatrics), Fellowship in Neonatology', 'MCI/2013/MP/56789', '11', '600.00', 'Child specialist with expertise in newborn care, childhood vaccinations, growth disorders, and pediatric emergencies. Child-friendly approach.', 'Little Angels Pediatric Clinic', '89, Treasure Island Mall Road',
+null, 'Indore', 'Madhya Pradesh', 'India', '452010', ARRAY[
+    "English",
+    "Hindi",
+    "Marathi",
+    "Bengali"
+], 'true', '2025-12-18 07: 43: 14.815417+00', '2025-12-18 07: 43: 14.815417+00'), ('350e8400-e29b-41d4-a716-446655440007', '650e8400-e29b-41d4-a716-446655440007', 'Orthopedic Surgery & Sports Medicine', 'MBBS, MS (Orthopedics), DNB, Fellowship in Sports Medicine', 'MCI/2010/MP/67890', '14', '900.00', 'Specialist in joint replacement, arthroscopy, sports injuries, and spine surgery. Advanced minimally invasive techniques.', 'Bose Bone & Joint Clinic', 'Shop 12-13, Satya Sai Square, Vijay Nagar',
+null, 'Indore', 'Madhya Pradesh', 'India', '452010', ARRAY[
+    "English",
+    "Hindi",
+    "Bengali"
+], 'true', '2025-12-18 07: 43: 14.815417+00', '2025-12-18 07: 43: 14.815417+00'), ('350e8400-e29b-41d4-a716-446655440008', '650e8400-e29b-41d4-a716-446655440008', 'Dermatology, Venereology & Cosmetology', 'MBBS, MD (Dermatology), Fellowship in Aesthetic Dermatology', 'MCI/2014/MP/78901', '10', '800.00', 'Expert in skin diseases, hair fall treatment, acne management, laser procedures, and anti-aging treatments. Latest cosmetic dermatology techniques.', 'Menon Skin & Laser Clinic', '456, Bombay Hospital Road, Near Apollo Hospital',
+null, 'Indore', 'Madhya Pradesh', 'India', '452010', ARRAY[
+    "English",
+    "Hindi",
+    "Malayalam",
+    "Tamil"
+], 'true', '2025-12-18 07: 43: 14.815417+00', '2025-12-18 07: 43: 14.815417+00'), ('350e8400-e29b-41d4-a716-446655440051', '650e8400-e29b-41d4-a716-446655440051', 'Cardiology', 'MBBS, MD (Medicine), DM (Cardiology)', 'MCI-51001', '15', '1000.00', 'Experienced cardiologist specializing in heart disease management and interventional cardiology.', 'Heart Care Center', '12 MG Road',
+null, 'Indore', 'Madhya Pradesh', 'India', '452001', ARRAY[
+    "English",
+    "Hindi"
+], 'true', '2025-12-23 14: 05: 29.188983+00', '2025-12-23 14: 05: 29.188983+00'), ('350e8400-e29b-41d4-a716-446655440052', '650e8400-e29b-41d4-a716-446655440052', 'General Medicine', 'MBBS, MD (Medicine)', 'MCI-52001', '10', '500.00', 'General physician providing comprehensive primary healthcare and preventive medicine.', 'City Health Clinic', '12 MG Road',
+null, 'Indore', 'Madhya Pradesh', 'India', '452001', ARRAY[
+    "English",
+    "Hindi"
+], 'true', '2025-12-23 14: 05: 29.188983+00', '2025-12-23 14: 05: 29.188983+00'), ('350e8400-e29b-41d4-a716-446655440053', '650e8400-e29b-41d4-a716-446655440053', 'Pediatrics', 'MBBS, MD (Pediatrics)', 'MCI-53001', '12', '700.00', 'Pediatrician specializing in child healthcare, vaccinations, and developmental assessments.', 'Kids Care Clinic', '45 Vijay Nagar',
+null, 'Indore', 'Madhya Pradesh', 'India', '452010', ARRAY[
+    "English",
+    "Hindi",
+    "Marathi"
+], 'true', '2025-12-23 14: 05: 29.188983+00', '2025-12-23 14: 05: 29.188983+00'), ('350e8400-e29b-41d4-a716-446655440054', '650e8400-e29b-41d4-a716-446655440054', 'Dermatology', 'MBBS, MD (Dermatology)', 'MCI-54001', '8', '800.00', 'Dermatologist treating skin conditions, acne, eczema, and cosmetic dermatology.', 'Skin & Hair Clinic', '78 Scheme 54',
+null, 'Indore', 'Madhya Pradesh', 'India', '452010', ARRAY[
+    "English",
+    "Hindi"
+], 'true', '2025-12-23 14: 05: 29.188983+00', '2025-12-23 14: 05: 29.188983+00'), ('350e8400-e29b-41d4-a716-446655440055', '650e8400-e29b-41d4-a716-446655440055', 'Orthopedics', 'MBBS, MS (Orthopedics)', 'MCI-55001', '14', '1000.00', 'Orthopedic surgeon specializing in joint replacement, fractures, and sports injuries.', 'Bone & Joint Center', '23 AB Road',
+null, 'Indore', 'Madhya Pradesh', 'India', '452001', ARRAY[
+    "English",
+    "Hindi",
+    "Gujarati"
+], 'true', '2025-12-23 14: 05: 29.188983+00', '2025-12-23 14: 05: 29.188983+00'), ('350e8400-e29b-41d4-a716-446655440056', '650e8400-e29b-41d4-a716-446655440056', 'Gynecology', 'MBBS, MS (OB-GYN)', 'MCI-56001', '16', '900.00', 'Gynecologist providing women''s healthcare, pregnancy care, and gynecological surgeries.', 'Women''s Health Clinic', '56 Palasia',
+null, 'Indore', 'Madhya Pradesh', 'India', '452001', ARRAY[
+    "English",
+    "Hindi"
+], 'true', '2025-12-23 14: 05: 29.188983+00', '2025-12-23 14: 05: 29.188983+00'), ('350e8400-e29b-41d4-a716-446655440057', '650e8400-e29b-41d4-a716-446655440057', 'ENT', 'MBBS, MS (ENT)', 'MCI-57001', '11', '750.00', 'ENT specialist treating ear, nose, throat disorders, and performing ENT surgeries.', 'ENT Care Center', '89 Rau',
+null, 'Indore', 'Madhya Pradesh', 'India', '453331', ARRAY[
+    "English",
+    "Hindi",
+    "Punjabi"
+], 'true', '2025-12-23 14: 05: 29.188983+00', '2025-12-23 14: 05: 29.188983+00'), ('350e8400-e29b-41d4-a716-446655440058', '650e8400-e29b-41d4-a716-446655440058', 'Ophthalmology', 'MBBS, MS (Ophthalmology)', 'MCI-58001', '13', '850.00', 'Ophthalmologist specializing in eye care, cataract surgery, and LASIK procedures.', 'Vision Eye Hospital', '34 Sapna Sangeeta Road',
+null, 'Indore', 'Madhya Pradesh', 'India', '452001', ARRAY[
+    "English",
+    "Hindi"
+], 'true', '2025-12-23 14: 05: 29.188983+00', '2025-12-23 14: 05: 29.188983+00'), ('350e8400-e29b-41d4-a716-446655440059', '650e8400-e29b-41d4-a716-446655440059', 'Psychiatry', 'MBBS, MD (Psychiatry)', 'MCI-59001', '9', '1000.00', 'Psychiatrist treating mental health disorders, depression, anxiety, and behavioral issues.', 'Mind Care Psychiatry Clinic', '67 New Palasia',
+null, 'Indore', 'Madhya Pradesh', 'India', '452001', ARRAY[
+    "English",
+    "Hindi",
+    "Marathi"
+], 'true', '2025-12-23 14: 05: 29.188983+00', '2025-12-23 14: 05: 29.188983+00'), ('350e8400-e29b-41d4-a716-446655440060', '650e8400-e29b-41d4-a716-446655440060', 'Neurology', 'MBBS, MD (Medicine), DM (Neurology)', 'MCI-60001', '18', '1200.00', 'Neurologist treating neurological disorders, epilepsy, stroke, and movement disorders.', 'Neuro Care Clinic', '123 Treasure Island',
+null, 'Indore', 'Madhya Pradesh', 'India', '452010', ARRAY[
+    "English",
+    "Hindi"
+], 'true', '2025-12-23 14: 05: 29.188983+00', '2025-12-23 14: 05: 29.188983+00'), ('350e8400-e29b-41d4-a716-446655440061', '650e8400-e29b-41d4-a716-446655440061', 'Gastroenterology', 'MBBS, MD (Medicine), DM (Gastroenterology)', 'MCI-61001', '15', '1100.00', 'Gastroenterologist treating digestive disorders, liver diseases, and performing endoscopy.', 'Digestive Health Center', '45 Bhanwarkuan',
+null, 'Indore', 'Madhya Pradesh', 'India', '452014', ARRAY[
+    "English",
+    "Hindi",
+    "Bengali"
+], 'true', '2025-12-23 14: 05: 29.188983+00', '2025-12-23 14: 05: 29.188983+00'), ('350e8400-e29b-41d4-a716-446655440062', '650e8400-e29b-41d4-a716-446655440062', 'Pulmonology', 'MBBS, MD (Medicine), DM (Pulmonology)', 'MCI-62001', '12', '950.00', 'Pulmonologist treating respiratory diseases, asthma, COPD, and sleep disorders.', 'Lung Care Clinic', '78 Indore GPO',
+null, 'Indore', 'Madhya Pradesh', 'India', '452001', ARRAY[
+    "English",
+    "Hindi"
+], 'true', '2025-12-23 14: 05: 29.188983+00', '2025-12-23 14: 05: 29.188983+00'), ('350e8400-e29b-41d4-a716-446655440063', '650e8400-e29b-41d4-a716-446655440063', 'Nephrology', 'MBBS, MD (Medicine), DM (Nephrology)', 'MCI-63001', '14', '1150.00', 'Nephrologist treating kidney diseases, dialysis management, and kidney transplant care.', 'Kidney Care Center', '90 Scheme 78',
+null, 'Indore', 'Madhya Pradesh', 'India', '452010', ARRAY[
+    "English",
+    "Hindi",
+    "Gujarati"
+], 'true', '2025-12-23 14: 05: 29.188983+00', '2025-12-23 14: 05: 29.188983+00'), ('350e8400-e29b-41d4-a716-446655440064', '650e8400-e29b-41d4-a716-446655440064', 'Endocrinology', 'MBBS, MD (Medicine), DM (Endocrinology)', 'MCI-64001', '11', '1000.00', 'Endocrinologist treating diabetes, thyroid disorders, and hormonal imbalances.', 'Hormone Health Clinic', '56 Scheme 94',
+null, 'Indore', 'Madhya Pradesh', 'India', '452010', ARRAY[
+    "English",
+    "Hindi"
+], 'true', '2025-12-23 14: 05: 29.188983+00', '2025-12-23 14: 05: 29.188983+00'), ('350e8400-e29b-41d4-a716-446655440065', '650e8400-e29b-41d4-a716-446655440065', 'Rheumatology', 'MBBS, MD (Medicine), DM (Rheumatology)', 'MCI-65001', '10', '900.00', 'Rheumatologist treating arthritis, autoimmune diseases, and musculoskeletal disorders.', 'Joint & Arthritis Clinic', '34 Rajwada',
+null, 'Indore', 'Madhya Pradesh', 'India', '452002', ARRAY[
+    "English",
+    "Hindi",
+    "Marathi"
+], 'true', '2025-12-23 14: 05: 29.188983+00', '2025-12-23 14: 05: 29.188983+00'), ('350e8400-e29b-41d4-a716-446655440066', '650e8400-e29b-41d4-a716-446655440066', 'Oncology', 'MBBS, MD (Medicine), DM (Oncology)', 'MCI-66001', '17', '1500.00', 'Oncologist specializing in cancer treatment, chemotherapy, and palliative care.', 'Cancer Care Center', '123 Bombay Hospital Road',
+null, 'Indore', 'Madhya Pradesh', 'India', '452010', ARRAY[
+    "English",
+    "Hindi"
+], 'true', '2025-12-23 14: 05: 29.188983+00', '2025-12-23 14: 05: 29.188983+00'), ('350e8400-e29b-41d4-a716-446655440067', '650e8400-e29b-41d4-a716-446655440067', 'Urology', 'MBBS, MS (Urology)', 'MCI-67001', '13', '1000.00', 'Urologist treating urinary tract disorders, kidney stones, and prostate diseases.', 'Urology Specialty Clinic', '67 Manik Bagh Road',
+null, 'Indore', 'Madhya Pradesh', 'India', '452014', ARRAY[
+    "English",
+    "Hindi",
+    "Punjabi"
+], 'true', '2025-12-23 14: 05: 29.188983+00', '2025-12-23 14: 05: 29.188983+00'), ('350e8400-e29b-41d4-a716-446655440068', '650e8400-e29b-41d4-a716-446655440068', 'Plastic Surgery', 'MBBS, MS (General Surgery), MCh (Plastic Surgery)', 'MCI-68001', '15', '1800.00', 'Plastic surgeon specializing in reconstructive surgery, cosmetic procedures, and burn treatment.', 'Aesthetic & Reconstructive Surgery Center', '89 Scheme 140',
+null, 'Indore', 'Madhya Pradesh', 'India', '452016', ARRAY[
+    "English",
+    "Hindi"
+], 'true', '2025-12-23 14: 05: 29.188983+00', '2025-12-23 14: 05: 29.188983+00'), ('350e8400-e29b-41d4-a716-446655440069', '650e8400-e29b-41d4-a716-446655440069', 'Anesthesiology', 'MBBS, MD (Anesthesiology)', 'MCI-69001', '12', '800.00', 'Anesthesiologist providing anesthesia services, pain management, and critical care.', 'Pain & Anesthesia Clinic', '45 Residency Area',
+null, 'Indore', 'Madhya Pradesh', 'India', '452001', ARRAY[
+    "English",
+    "Hindi",
+    "Bengali"
+], 'true', '2025-12-23 14: 05: 29.188983+00', '2025-12-23 14: 05: 29.188983+00'), ('350e8400-e29b-41d4-a716-446655440070', '650e8400-e29b-41d4-a716-446655440070', 'Radiology', 'MBBS, MD (Radiology)', 'MCI-70001', '11', '700.00', 'Radiologist specializing in diagnostic imaging, CT scans, MRI, and interventional radiology.', 'Advanced Imaging Center', '78 Bypass Road',
+null, 'Indore', 'Madhya Pradesh', 'India', '452016', ARRAY[
+    "English",
+    "Hindi"
+], 'true', '2025-12-23 14: 05: 29.188983+00', '2025-12-23 14: 05: 29.188983+00'), ('350e8400-e29b-41d4-a716-446655440071', '650e8400-e29b-41d4-a716-446655440071', 'Pathology', 'MBBS, MD (Pathology)', 'MCI-71001', '14', '600.00', 'Pathologist providing diagnostic laboratory services, histopathology, and cytology.', 'Diagnostic Pathology Lab', '90 Khajrana Road',
+null, 'Indore', 'Madhya Pradesh', 'India', '452018', ARRAY[
+    "English",
+    "Hindi",
+    "Gujarati"
+], 'true', '2025-12-23 14: 05: 29.188983+00', '2025-12-23 14: 05: 29.188983+00'), ('350e8400-e29b-41d4-a716-446655440072', '650e8400-e29b-41d4-a716-446655440072', 'Dentistry', 'BDS, MDS (Orthodontics)', 'DCI-72001', '10', '800.00', 'Dentist specializing in orthodontics, dental implants, and cosmetic dentistry.', 'Smile Dental Clinic', '56 South Tukoganj',
+null, 'Indore', 'Madhya Pradesh', 'India', '452001', ARRAY[
+    "English",
+    "Hindi"
+], 'true', '2025-12-23 14: 05: 29.188983+00', '2025-12-23 14: 05: 29.188983+00'), ('350e8400-e29b-41d4-a716-446655440073', '650e8400-e29b-41d4-a716-446655440073', 'Physiotherapy', 'BPT, MPT (Orthopedics)',
+null, '8', '500.00', 'Physiotherapist providing rehabilitation, sports injury treatment, and pain management.', 'PhysioFit Rehabilitation Center', '34 Vijay Nagar',
+null, 'Indore', 'Madhya Pradesh', 'India', '452010', ARRAY[
+    "English",
+    "Hindi",
+    "Marathi"
+], 'true', '2025-12-23 14: 05: 29.188983+00', '2025-12-23 14: 05: 29.188983+00'), ('350e8400-e29b-41d4-a716-446655440074', '650e8400-e29b-41d4-a716-446655440074', 'Dietetics & Nutrition', 'BSc (Nutrition), MSc (Dietetics)',
+null, '7', '600.00', 'Dietitian providing nutritional counseling, weight management, and therapeutic diet planning.', 'NutriHealth Clinic', '67 Scheme 54',
+null, 'Indore', 'Madhya Pradesh', 'India', '452010', ARRAY[
+    "English",
+    "Hindi"
+], 'true', '2025-12-23 14: 05: 29.188983+00', '2025-12-23 14: 05: 29.188983+00'), ('350e8400-e29b-41d4-a716-446655440075', '650e8400-e29b-41d4-a716-446655440075', 'Yoga & Wellness', 'Yoga Instructor Certification, MSc (Yoga Therapy)',
+null, '9', '400.00', 'Yoga therapist providing holistic wellness, stress management, and therapeutic yoga.', 'Wellness Yoga Center', '89 Annapurna Road',
+null, 'Indore', 'Madhya Pradesh', 'India', '452009', ARRAY[
+    "English",
+    "Hindi",
+    "Sanskrit"
+], 'true', '2025-12-23 14: 05: 29.188983+00', '2025-12-23 14: 05: 29.188983+00'), ('350e8400-e29b-41d4-a716-446655440076', '650e8400-e29b-41d4-a716-446655440076', 'Naturopathy', 'BNYS, MD (Naturopathy)', 'AYUSH-76001', '11', '550.00', 'Naturopathy doctor providing natural healing, detoxification, and lifestyle modification.', 'Nature Cure Clinic', '123 Tilak Nagar',
+null, 'Indore', 'Madhya Pradesh', 'India', '452018', ARRAY[
+    "English",
+    "Hindi"
+], 'true', '2025-12-23 14: 05: 29.188983+00', '2025-12-23 14: 05: 29.188983+00'), ('350e8400-e29b-41d4-a716-446655440077', '650e8400-e29b-41d4-a716-446655440077', 'Sexology', 'MBBS, MD (Psychiatry), Fellowship in Sexology', 'MCI-77001', '12', '1200.00', 'Sexologist and relationship counselor addressing sexual health and intimacy issues.', 'Wellness & Intimacy Clinic', '156 Scheme 78',
+null, 'Indore', 'Madhya Pradesh', 'India', '452010', ARRAY[
+    "English",
+    "Hindi"
+], 'true', '2025-12-23 14: 05: 29.188983+00', '2025-12-23 14: 05: 29.188983+00'), ('350e8400-e29b-41d4-a716-446655440078', '650e8400-e29b-41d4-a716-446655440078', 'General Surgery', 'MBBS, MS (General Surgery)', 'MCI-78001', '17', '900.00', 'General surgeon with expertise in laparoscopic surgery, hernia repair, and trauma surgery.', 'Surgical Care Center', '178 Residency Area',
+null, 'Indore', 'Madhya Pradesh', 'India', '452001', ARRAY[
+    "English",
+    "Hindi",
+    "Gujarati"
+], 'true', '2025-12-23 14: 05: 29.188983+00', '2025-12-23 14: 05: 29.188983+00'), ('350e8400-e29b-41d4-a716-446655440079', '650e8400-e29b-41d4-a716-446655440079', 'Neurosurgery', 'MBBS, MS (General Surgery), MCh (Neurosurgery)', 'MCI-79001', '20', '2000.00', 'Neurosurgeon specializing in brain and spine surgery, including minimally invasive procedures.', 'NeuroSurgical Excellence Center', '245 Bombay Hospital Campus',
+null, 'Indore', 'Madhya Pradesh', 'India', '452010', ARRAY[
+    "English",
+    "Hindi"
+], 'true', '2025-12-23 14: 05: 29.188983+00', '2025-12-23 14: 05: 29.188983+00'), ('350e8400-e29b-41d4-a716-446655440080', '650e8400-e29b-41d4-a716-446655440080', 'Infectious Diseases', 'MBBS, MD (Internal Medicine), DM (Infectious Diseases)', 'MCI-80001', '11', '1100.00', 'Infectious disease specialist treating HIV, tuberculosis, tropical diseases, and hospital-acquired infections.', 'Infection Control Clinic', '89 Dewas Naka',
+null, 'Indore', 'Madhya Pradesh', 'India', '452010', ARRAY[
+    "English",
+    "Hindi",
+    "Telugu"
+], 'true', '2025-12-23 14: 05: 29.188983+00', '2025-12-23 14: 05: 29.188983+00');
+
