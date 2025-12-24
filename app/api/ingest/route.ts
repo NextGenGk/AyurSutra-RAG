@@ -80,6 +80,7 @@ export async function GET() {
           clinic_name: doctor.clinic_name || "Not specified",
           city: doctor.city || "Not specified",
           image_url: (doctor as any).image_url || "", // Pass the image URL
+          name: (doctor as any).name || "", // Pass the name
           content: content
         }
       });
